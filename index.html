@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div style="height: 1000px; background-color: aliceblue;">
+        我是测试throttle来的！！！
+    </div>
+</body>
+<script>
+    function throttle(fn, gapTime) {
+        let cd = false
+        return function() {
+            if(!cd) {
+                fn()
+                cd = true
+                setTimeout(()=>{
+                    cd = false
+                }, gapTime)
+            }
+        }
+    }
+
+    function throttle2(fn, gapTime) {
+        let lastTime = null
+        let nowTime = null
+        return function() {
+            nowTime = Date.now()
+            if(!lastTime || nowTime - lastTime > gapTime) {
+                fn()
+                lastTime = nowTime
+            }
+        }
+    }
+
+    let fn = () => console.log('我执行了')
+    fn = throttle(fn,3000)
+
+    document.body.onscroll = fn
+
+</script>
+<script src="functions/httpcache.js"></script>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "basic-review",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "fs": "^0.0.1-security",
+    "koa": "^2.13.1",
+    "koa-conditional-get": "^3.0.0",
+    "koa-ejs": "^4.3.0",
+    "koa-etag": "^4.0.0",
+    "koa-router": "^10.0.0",
+    "koa-static": "^5.0.0",
+    "koa-static-cache": "^5.1.4",
+    "parcel-bundler": "^1.12.5",
+    "path": "^0.12.7"
+  },
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  }
+}
